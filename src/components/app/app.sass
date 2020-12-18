@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+$main: #25a7f2
+$inverse: #ffffff
+$results: #2e2e2e
+
+*
+    box-sizing: border-box
+
+    &:focus
+        outline: none
+
+.mortgage-calc
+    padding: 30px 15px
+    width: clamp(300px, 100%, 700px)
+    border-radius: 20px
+    background-color: $main
+    font-family: 'Montserrat', sans-serif
+    text-align: center
+    margin: 0 auto
+
+    &__header
+        margin: 0 0 30px
+        color: $inverse

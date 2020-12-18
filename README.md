@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Задание
+## SEMrush. Test. Frontend Intern.
+Вам предлагается реализовать интерфейс, с помощью которого пользователь может рассчитать ежемесячный платеж, тело кредита, переплату и необходимый доход при покупке недвижимости в ипотеку. Форма состоит из четырех полей: стоимость недвижимости, первоначальный взнос, срок кредита и процентная ставка.
+В качестве инструментов можно использовать все что угодно: любые библиотеки и фреймворки, сборщики и таск раннеры, препроцессоры и методологии, а можно не использовать вообще ничего.
+Как это может выглядеть:
+## Функциональность:
+- Данные должны пересчитываться реактивно (после изменения любого поля).
+- При нажатии на кнопку “Save” данные формы должны сохраняться, чтобы после очередного открытия приложения не было необходимости заполнять все заново.
+- При нажатии на кнопку “Clear” форма должна очищаться.
+- Разряды чисел в полях формы и в результатах вычислений должны быть разделены пробелами.
+- При активации (по клику) “процентного якоря” поля “стоимость недвижимости” и “первоначальный взнос” должны быть связаны (при изменении любого из этих полей второе должно пересчитываться автоматически)
+- Например, на скриншоте сверху активирован “якорь” со значением 15%, это значит, что поле “первоначальный взнос” всегда должно быть равно 15% от значения в поле “стоимость недвижимости”.
+- Покрыть приложение юнит тестами.
+- Решение необходимо выложить на github, будет круто если оно будет доступно на github pages.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Примечание: мы понимаем, что реализация всех 7 пунктов - достаточно трудоемкая задача. Если вы не успели реализовать некоторый функционал - все равно отправляйте нам свое решение.
+## Необходимые формулы:
+C=W-A, где
+C-тело кредита, W-стоимость недвижимости, A-первоначальный взнос
 
-## Available Scripts
+P=C(I1200+I1200(1+I1200)n-1), где
+P-ежемесячный платеж, C-тело кредита, I-процентная ставка,
+n-срок кредитования (в месяцах)
 
-In the project directory, you can run:
+I=5P3, где I-необходимый доход, P-ежемесячный платеж
 
-### `npm start`
+L=Pn-W+A, где L-переплата, P-ежемесячный платеж,
+n-срок кредитования, W-стоимость недвижимости, A-первоначальный взнос
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Примечания
