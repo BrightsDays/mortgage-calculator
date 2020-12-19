@@ -12,6 +12,9 @@
         border-radius: 6px
         margin-bottom: 20px
 
+        &:nth-child(2)
+            min-height: 105px
+
         label
             padding: 0 3px
             position: absolute
@@ -27,7 +30,7 @@
             border: none
             background: none
             color: $inverse
-            padding: 0 50px 0 10px
+            padding: 0 50px 0 12px
             font-size: 20px
             line-height: 24px
 
@@ -36,7 +39,7 @@
                 color: $inverse
 
             &:disabled
-                color: lightgrey
+                color: $results
 
         &:after
             position: absolute
@@ -55,6 +58,10 @@
     &__anchors
         display: flex
         justify-content: space-between
+        width: 90%
+        margin: -85px auto 10px
+        padding-top: 10px
+        border-top: 2px solid $inverse
 
         input
             position: relative
@@ -122,7 +129,7 @@
 .mortgage-results
     display: inline-block
     width: clamp(256px, 100%, 320px)
-    min-height: 376px
+    min-height: 374px
     background: $inverse
         clip: content-box
     padding: 10px
