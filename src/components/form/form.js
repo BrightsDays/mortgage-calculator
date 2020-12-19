@@ -21,8 +21,18 @@ const Form = () => {
     overpayment: 0,
   });
   const [disabled, setDisabled] = useState(false);
+  const [factor, setFactor] = useState(false);
 
   useEffect(() => setData(Calc(price, part, time, percent)), [price, part, time, percent]);
+  useEffect(() => {
+    const nPrice = price.replace(/\s/g, "");
+    if (factor) setPart(Math.round(+nPrice * factor / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+  }, [price, factor]);
+
+  const anchor = (value) => {
+    setFactor(value);
+    setDisabled(true);
+  };
 
   const saveData = () => {
     localStorage.setItem('price', price);
@@ -49,12 +59,6 @@ const Form = () => {
     document.querySelectorAll('input[name="anchor"]').forEach(item => item.checked = false);
   };
 
-  const anchor = (value) => {
-    const nPrice = price.replace(/\s/g, "");
-    setDisabled(true);
-    setPart(Math.round(+nPrice * value / 100).toString());
-  };
-
   return (
     <div>
       <form className="mortgage-form">
@@ -62,16 +66,16 @@ const Form = () => {
           <label>Стоимость недвижимости</label>
           <input onInput={e => {
                             Validate(e.target, 10000000000);
-                            setPrice(e.target.value);}} 
+                            setPrice(e.target.value);}}
                  placeholder="До 10 000 000 000" 
                  value={price}></input>
         </div>
         <div className="mortgage-form__input">
           <label>Первоначальный взнос</label>
           <input className="val" onInput={e => {
-                            Validate(e.target, 3300000000);
+                            Validate(e.target, 5000000000);
                             setPart(e.target.value);}} 
-                 placeholder="До 3 300 000 000"
+                 placeholder="До 5 000 000 000"
                  value={part}
                  disabled={disabled}></input>
         </div>
@@ -86,7 +90,7 @@ const Form = () => {
           <label>Срок кредита</label>
           <input onInput={e => {
                             Validate(e.target, 30);
-                            setTime(e.target.value);}} 
+                            setTime(e.target.value);}}
                  placeholder="До 30"
                  value={time}></input>
         </div>
@@ -94,7 +98,7 @@ const Form = () => {
           <label>Процентная ставка</label>
           <input onInput={e => {
                             Validate(e.target, 30);
-                            setPercent(e.target.value);}} 
+                            setPercent(e.target.value);}}
                  placeholder="До 30"
                  value={percent}></input>
         </div>
