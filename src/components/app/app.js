@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Form from '../form';
-import Results from '../results';
 import './app.sass';
 
 const App = () => {
@@ -9,7 +8,6 @@ const App = () => {
     <div className="mortgage-calc">
       <h1 className="mortgage-calc__header">Ипотечный калькулятор 🏡</h1>
       <Form />
-      <Results />
     </div>
   );
 }

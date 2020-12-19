@@ -29,7 +29,14 @@
             color: $inverse
             padding: 0 50px 0 10px
             font-size: 20px
-            line-height: 24px 
+            line-height: 24px
+
+            &::placeholder
+                font-size: 16px
+                color: $inverse
+
+            &:disabled
+                color: lightgrey
 
         &:after
             position: absolute
@@ -49,8 +56,9 @@
         display: flex
         justify-content: space-between
 
-        button
-            margin-bottom: 20px
+        input
+            position: relative
+            margin: 0 0 20px 0
             border: 2px solid $inverse
             color: $inverse
             background: none
@@ -61,8 +69,30 @@
             cursor: pointer
             font-weight: bold
             transition: all .2s
+            appearance: none
 
-            &:hover
+            &::after
+                position: absolute
+                top: 30%
+                left: 0
+                width: 100%
+
+            &:nth-child(1)::after
+                content: '10%'
+
+            &:nth-child(2)::after
+                content: '15%'
+
+            &:nth-child(3)::after
+                content: '20%'
+
+            &:nth-child(4)::after
+                content: '25%'
+
+            &:nth-child(5)::after
+                content: '30%'
+
+            &:hover,&:checked
                 border: 2px solid $inverse
                 color: $main
                 background: $inverse
@@ -88,3 +118,22 @@
                 border: 2px solid $inverse
                 color: $main
                 background: $inverse
+
+.mortgage-results
+    display: inline-block
+    width: clamp(256px, 100%, 320px)
+    min-height: 376px
+    background: $inverse
+        clip: content-box
+    padding: 10px
+    vertical-align: top
+    border-radius: 16px
+
+    &__item
+        p
+            color: $results
+            margin-bottom: 12px
+
+        b
+            color: $results
+            font-size: 26px

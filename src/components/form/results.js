@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
-import './results.sass';
+import React from 'react';
 
-const Results = () => {
-
+const Results = ({ loanBody, monthlyPayment, requiredIncome, overpayment }) => {
+  
   return (
     <div className="mortgage-results">
       <div className="mortgage-results__item">
           <p>Тело кредита</p>
-          <b>0 ₽</b>
+          <b>{loanBody} ₽</b>
       </div>
       <div className="mortgage-results__item">
           <p>Ежемесяный платеж</p>
-          <b>0 ₽</b>
+          <b>{monthlyPayment} ₽</b>
       </div>
       <div className="mortgage-results__item">
           <p>Необходимый доход</p>
-          <b>0 ₽</b>
+          <b>{requiredIncome} ₽</b>
       </div>
       <div className="mortgage-results__item">
           <p>Переплата</p>
-          <b>0 ₽</b>
+          <b>{overpayment} ₽</b>
       </div>
     </div>
   );
