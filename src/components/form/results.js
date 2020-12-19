@@ -18,7 +18,7 @@ const Results = ({ loanBody, monthlyPayment, requiredIncome, overpayment }) => {
       </div>
       <div className="mortgage-results__item">
           <p>Переплата</p>
-          <b>{overpayment} ₽</b>
+          <b>{overpayment || '0'} ₽</b>
       </div>
     </div>
   );
