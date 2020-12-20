@@ -10,10 +10,10 @@ const Form = () => {
   const savedTime = localStorage.getItem('time');
   const savedPercent = localStorage.getItem('percent');
 
-  const [price, setPrice] = useState(savedPrice || '0');
-  const [part, setPart] = useState(savedPart || '0');
-  const [time, setTime] = useState(savedTime || '0');
-  const [percent, setPercent] = useState(savedPercent || '0');
+  const [price, setPrice] = useState(savedPrice || '');
+  const [part, setPart] = useState(savedPart || '');
+  const [time, setTime] = useState(savedTime || '');
+  const [percent, setPercent] = useState(savedPercent || '');
 
   const [data, setData] = useState({
     loanBody: 0,
@@ -59,6 +59,7 @@ const Form = () => {
         setPart('');
         setTime('');
         setPercent('');
+
         setData({
           loanBody: 0,
           monthlyPayment: 0,
@@ -67,6 +68,8 @@ const Form = () => {
         });
         setDisabled(false);
         setFactor(false);
+        
+        localStorage.clear()
         document.querySelectorAll('input').forEach(item => item.value = '');
         document.querySelectorAll('input[name="anchor"]').forEach(item => item.checked = false);
       }}>Очистить</button>

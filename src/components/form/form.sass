@@ -2,12 +2,14 @@
     
 .mortgage-form
     display: inline-block
-    width: clamp(200px, 100%, 320px)
+    width: 100%
+    max-width: 320px
     padding: 10px
 
     &__input
         position: relative
-        width: clamp(200px, 300px, 100%)
+        width: 300px
+        max-width: 100%
         border: 2px solid $mortgage-color-inverse
         border-radius: 6px
         margin-bottom: 20px
@@ -26,7 +28,8 @@
             background-color: $mortgage-color-main
 
         input
-            width: clamp(200px, 100%, 300px)
+            width: 300px
+            max-width: 100%
             min-height: 40px
             font-size: 20px
             line-height: 24px
@@ -148,7 +151,8 @@
 
 .mortgage-results
     display: inline-block
-    width: clamp(256px, 100%, 320px)
+    width: 100%
+    max-width: 320px
     min-height: 374px
     padding: 10px
     background: $mortgage-color-inverse
