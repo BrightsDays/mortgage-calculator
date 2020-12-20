@@ -1,4 +1,4 @@
-const Calc = (price, part, time, percent) => {
+const Calc = (price = '0', part = '0', time = '0', percent = '0') => {
   let result = {
     loanBody: 0,
     monthlyPayment: 0,
@@ -53,7 +53,7 @@ const Calc = (price, part, time, percent) => {
 
     const resultOverpayment = Math.round(resultMonthlyPayment * months - numPrice + numPart);
   
-    if (typeof resultOverpayment == 'number' && resultOverpayment >= 0) {
+    if (typeof resultOverpayment == 'number' && resultOverpayment >= 0 && numPrice > numPart) {
       result.overpayment = resultOverpayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     } else {
       result.overpayment = '0';
