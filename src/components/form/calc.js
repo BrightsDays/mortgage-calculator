@@ -8,10 +8,10 @@ const Calc = (price, part, time, percent) => {
   const months = +time * 12;
 
   const calcLoanBody = (price, part) => {
-    const nPrice = price.replace(/\s/g, "");
-    const nPart = part.replace(/\s/g, "");
+    const numPrice = +(price.replace(/\s/g, ""));
+    const numPart = +(part.replace(/\s/g, ""));
 
-    const resultLoanBody = Math.round(+nPrice - +nPart);
+    const resultLoanBody = Math.round(numPrice - numPart);
 
     if (typeof resultLoanBody == 'number' && resultLoanBody >= 0) {
       result.loanBody = resultLoanBody.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -21,11 +21,11 @@ const Calc = (price, part, time, percent) => {
   };
 
   const calcMonthlyPayment = (percent, months) => {
-    const nPercent = percent.replace(/\s/g, "");
-    const resultLoanBody = result.loanBody.replace(/\s/g, "");
+    const numPercent = +(percent.replace(/\s/g, ""));
+    const resultLoanBody = +(result.loanBody.replace(/\s/g, ""));
 
-    const resultMonthlyPayment = Math.round(+resultLoanBody * 
-      (+nPercent/1200 + ((+nPercent/1200)/(Math.pow((1 + (+nPercent/1200)), months) - 1))));
+    const resultMonthlyPayment = Math.round(resultLoanBody * 
+      (numPercent/1200 + ((numPercent/1200)/(Math.pow((1 + (numPercent/1200)), months) - 1))));
   
       if (typeof resultMonthlyPayment == 'number' && resultMonthlyPayment >= 0 && resultMonthlyPayment !== Infinity) {
         result.monthlyPayment = resultMonthlyPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -47,11 +47,11 @@ const Calc = (price, part, time, percent) => {
   };
 
   const calcOverpayment = (price, part, months) => {
-    const nPrice = price.replace(/\s/g, "");
-    const nPart = part.replace(/\s/g, "");
+    const numPrice = +(price.replace(/\s/g, ""));
+    const numPart = +(part.replace(/\s/g, ""));
     const resultMonthlyPayment = result.monthlyPayment.replace(/\s/g, "");
 
-    const resultOverpayment = Math.round(+resultMonthlyPayment * months - +nPrice + +nPart);
+    const resultOverpayment = Math.round(resultMonthlyPayment * months - numPrice + numPart);
   
     if (typeof resultOverpayment == 'number' && resultOverpayment >= 0) {
       result.overpayment = resultOverpayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");

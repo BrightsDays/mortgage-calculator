@@ -6,5 +6,5 @@ it('with strings from inputs can calculate right stats', () => {
         monthlyPayment: '79 124',
         overpayment: '49 488',
         requiredIncome: '131 873',
-      });
-  });
+    });
+});
