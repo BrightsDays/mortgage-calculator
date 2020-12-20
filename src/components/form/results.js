@@ -6,15 +6,15 @@ const Results = ({ loanBody, monthlyPayment, requiredIncome, overpayment }) => {
     <div className="mortgage-results">
       <div className="mortgage-results__item">
           <p>Тело кредита</p>
-          <b>{loanBody} ₽</b>
+          <b>{loanBody || '0'} ₽</b>
       </div>
       <div className="mortgage-results__item">
           <p>Ежемесяный платеж</p>
-          <b>{monthlyPayment} ₽</b>
+          <b>{monthlyPayment || '0'} ₽</b>
       </div>
       <div className="mortgage-results__item">
           <p>Необходимый доход</p>
-          <b>{requiredIncome} ₽</b>
+          <b>{requiredIncome || '0'} ₽</b>
       </div>
       <div className="mortgage-results__item">
           <p>Переплата</p>
