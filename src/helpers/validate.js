@@ -1,4 +1,4 @@
-const Validate = (eventTarget, max) => {
+const validate = (eventTarget, max) => {
     eventTarget.value = eventTarget.value.replace(/[^0-9]/g,'');
     const nValue = eventTarget.value.replace(/\s/g, "");
 
@@ -13,4 +13,4 @@ const Validate = (eventTarget, max) => {
     eventTarget.value = eventTarget.value.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
 
-export default Validate;
+export default validate;

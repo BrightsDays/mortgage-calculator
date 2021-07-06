@@ -1,4 +1,4 @@
-import Calc from './calc';
+import Calc from '../../helpers/calc';
 
 it('can calculate right results', () => {
     expect(Calc('1000000', '100000', '1', '10')).toEqual({

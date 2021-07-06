@@ -1,4 +1,5 @@
 import React from 'react';
+import "./results.sass";
 
 const Results = ({ loanBody, monthlyPayment, requiredIncome, overpayment }) => {
   

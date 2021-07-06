@@ -1,0 +1,50 @@
+@import '../app/app'
+
+.mortgage-anchors
+  display: flex
+  justify-content: space-between
+  width: 90%
+  margin: -85px auto 10px
+  padding-top: 10px
+  border-top: 2px solid $mortgage-color-inverse
+
+  &__anchor
+    position: relative
+    min-width: 40px
+    min-height: 40px
+    margin: 0 0 20px 0
+    text-align: center
+    font-weight: bold
+    border: 2px solid $mortgage-color-inverse
+    color: $mortgage-color-inverse
+    background: none
+    border-radius: 6px
+    cursor: pointer
+    transition: all .2s
+    appearance: none
+
+    &::after
+      position: absolute
+      top: 30%
+      left: 0
+      width: 100%
+
+    &--10::after
+      content: '10%'
+
+    &--15::after
+      content: '15%'
+
+    &--20::after
+      content: '20%'
+
+    &--25::after
+      content: '25%'
+
+    &--30::after
+      content: '30%'
+
+    &:hover, &:checked
+      color: $mortgage-color-main
+      border: 2px solid $mortgage-color-inverse
+      background: $mortgage-color-inverse

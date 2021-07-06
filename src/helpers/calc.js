@@ -1,4 +1,4 @@
-const Calc = (price = '0', part = '0', time = '0', percent = '0') => {
+const calc = (price = '0', part = '0', time = '0', percent = '0') => {
   let result = {
     loanBody: 0,
     monthlyPayment: 0,
@@ -24,9 +24,9 @@ const Calc = (price = '0', part = '0', time = '0', percent = '0') => {
     const numPercent = +(percent.replace(/\s/g, ""));
     const resultLoanBody = +(result.loanBody.replace(/\s/g, ""));
 
-    const resultMonthlyPayment = Math.round(resultLoanBody * 
+    const resultMonthlyPayment = Math.round(resultLoanBody *
       (numPercent/1200 + ((numPercent/1200)/(Math.pow((1 + (numPercent/1200)), months) - 1))));
-  
+
       if (typeof resultMonthlyPayment == 'number' && resultMonthlyPayment >= 0 && resultMonthlyPayment !== Infinity) {
         result.monthlyPayment = resultMonthlyPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
       } else {
@@ -52,7 +52,7 @@ const Calc = (price = '0', part = '0', time = '0', percent = '0') => {
     const resultMonthlyPayment = result.monthlyPayment.replace(/\s/g, "");
 
     const resultOverpayment = Math.round(resultMonthlyPayment * months - numPrice + numPart);
-  
+
     if (typeof resultOverpayment == 'number' && resultOverpayment >= 0 && numPrice > numPart) {
       result.overpayment = resultOverpayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     } else {
@@ -68,4 +68,4 @@ const Calc = (price = '0', part = '0', time = '0', percent = '0') => {
   return result;
 };
 
-export default Calc;
+export default calc;
